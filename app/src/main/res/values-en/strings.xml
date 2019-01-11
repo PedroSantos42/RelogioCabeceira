@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Bedside Clock</string>
+    <string name="portugues">Portuguese</string>
+    <string name="nivelbateria">Battery level</string>
+</resources>

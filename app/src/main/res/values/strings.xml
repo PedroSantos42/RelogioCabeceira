@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Relógio de Cabeceira</string>
+    <string name="portugues">Português</string>
+    <string name="nivelbateria">Nível da bateria</string>
+</resources>
