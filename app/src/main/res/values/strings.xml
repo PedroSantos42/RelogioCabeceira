@@ -3,4 +3,8 @@
     <string name="app_name">Relógio de Cabeceira</string>
     <string name="portugues">Português</string>
     <string name="nivelbateria">Nível da bateria</string>
+    <string name="default_hour_minute">00:00</string>
+    <string name="default_seconds">00</string>
+    <string name="preferences_icon">preferences_icon</string>
+    <string name="close_icon">close_icon</string>
 </resources>

@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.Calendar;
@@ -47,17 +49,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         this.mViewHolder.mCheckBattery.setChecked(true);
 
+        this.mViewHolder.mLinearOptions.animate().translationY(this.mViewHolder.mLinearOptions.getHeight());
+
         setListener();
     }
 
     private void setListener() {
         this.mViewHolder.mCheckBattery.setOnClickListener(this);
+        this.mViewHolder.mImageOption.setOnClickListener(this);
+        this.mViewHolder.mImageClose.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.check_battery) {
+        int id = v.getId();
+        if (id == R.id.check_battery) {
             this.toggleCheckBattery();
+        } else if (id == R.id.image_option) {
+            // Abrir o menu
+
+            this.mViewHolder.mLinearOptions.setVisibility(View.VISIBLE);
+            this.mViewHolder.mLinearOptions.animate()
+                    .translationY(0)
+                    .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+
+        } else if (id == R.id.image_close) {
+            // Fechar o menu
+
+            this.mViewHolder.mLinearOptions.animate()
+                    .translationY(this.mViewHolder.mLinearOptions.getHeight())
+                    .setDuration(getResources().getInteger(android.R.integer.config_mediumAnimTime));
+
         }
     }
 
@@ -119,6 +141,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.mTextSeconds = this.findViewById(R.id.text_seconds);
         this.mViewHolder.mCheckBattery = this.findViewById(R.id.check_battery);
         this.mViewHolder.mTextBatteryLevel = this.findViewById(R.id.text_battery_level);
+        this.mViewHolder.mImageClose = this.findViewById(R.id.image_close);
+        this.mViewHolder.mImageOption = this.findViewById(R.id.image_option);
+        this.mViewHolder.mLinearOptions = this.findViewById(R.id.linear_options);
     }
 
     private static class ViewHolder {
@@ -126,5 +151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         TextView mTextSeconds;
         CheckBox mCheckBattery;
         TextView mTextBatteryLevel;
+        ImageView mImageOption;
+        ImageView mImageClose;
+        LinearLayout mLinearOptions;
     }
 }
